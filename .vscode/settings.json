@@ -2,5 +2,11 @@
     "editor.rulers": [80],
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#ff4081"
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
     }
 }
