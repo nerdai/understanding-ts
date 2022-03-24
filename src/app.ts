@@ -60,6 +60,42 @@ function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
   return adjDescriptor;
 }
 
+// ProjectList Class
+class ProjectList {
+  templateElement: HTMLTemplateElement;
+  hostElement: HTMLDivElement;
+  element: HTMLElement; // section tag doesn't have it's own type
+
+  constructor(private type: "active" | "finished") {
+    this.templateElement = document.getElementById(
+      "project-list"
+    )! as HTMLTemplateElement;
+    this.hostElement = document.getElementById("app")! as HTMLDivElement;
+
+    const importedNode = document.importNode(
+      this.templateElement.content,
+      true
+    );
+    this.element = importedNode.firstElementChild as HTMLElement;
+    this.element.id = `${type}-projects`;
+
+    this.attach();
+    this.renderContent();
+  }
+
+  private renderContent() {
+    const listId = `${this.type}-projects-list`;
+    this.element.querySelector("ul")!.id = listId;
+    this.element.querySelector("h2")!.textContent =
+      this.type.toUpperCase() + " PROJECTS";
+  }
+
+  private attach() {
+    // render the form
+    this.hostElement.insertAdjacentElement("beforeend", this.element);
+  }
+}
+
 // Project Input Class
 class ProjectInput {
   templateElement: HTMLTemplateElement;
@@ -103,17 +139,17 @@ class ProjectInput {
 
     const titleValidatable: Validatable = {
       value: enteredTitle,
-      required: true
+      required: true,
     };
     const descriptionValidatable: Validatable = {
       value: enteredDescription,
       required: true,
-      minLength: 5
+      minLength: 0,
     };
     const peopleValidatable: Validatable = {
       value: +enteredPeople,
       required: true,
-      min: 1
+      min: 1,
     };
 
     if (
@@ -156,3 +192,6 @@ class ProjectInput {
 }
 
 const prjInput = new ProjectInput();
+const activePrjList = new ProjectList('active');
+const finishedPrjList = new ProjectList('finished');
+
