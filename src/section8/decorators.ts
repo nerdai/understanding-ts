@@ -8,6 +8,8 @@
 //   console.log(constructor);
 // }
 
+// NOTE this needs experimentalDecorators set to true in tsconfig.json
+
 // decorator factory
 function Logger(logString: string) {
   // inner, return decoartor
