@@ -114,6 +114,7 @@
     "./src/_section6/*",
     "./src/_section7/*",
     "./src/_section8/*",
-    "./src/_section9/*"
+    "./src/_section9/*",
+    "./src/_section10/*",
   ]
 }
