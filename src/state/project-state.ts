@@ -1,7 +1,9 @@
-// Project State Management
-type Listener<T> = (items: T[]) => void;
+import { Project, ProjectStatus } from "../models/project.js";
 
-abstract class State<T> {
+// Project State Management
+export type Listener<T> = (items: T[]) => void;
+
+export abstract class State<T> {
   protected listeners: Listener<T>[] = [];
 
   addListener(listenerFn: Listener<T>) {
@@ -9,7 +11,7 @@ abstract class State<T> {
   }
 }
 
-class ProjectState extends State<Project> {
+export class ProjectState extends State<Project> {
   private projects: Project[] = [];
   private static instance: ProjectState;
 
@@ -54,4 +56,4 @@ class ProjectState extends State<Project> {
   }
 }
 
-const projectState = ProjectState.getInstance(); // singleton state management
+export const projectState = ProjectState.getInstance(); // singleton state management
