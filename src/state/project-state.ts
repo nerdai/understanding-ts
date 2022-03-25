@@ -1,7 +1,7 @@
 import { Project, ProjectStatus } from "../models/project.js";
 
 // Project State Management
-export type Listener<T> = (items: T[]) => void;
+type Listener<T> = (items: T[]) => void;
 
 export abstract class State<T> {
   protected listeners: Listener<T>[] = [];
