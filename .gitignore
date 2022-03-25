@@ -1,3 +1,4 @@
 node_modules
 *.swp
 .env
+_section12/.env
