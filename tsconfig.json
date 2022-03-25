@@ -106,4 +106,14 @@
   //   "./src/state/*",
   //   "./src/utils/*",
   // ],
+  "exclude": [
+    "./src/_section2/*",
+    "./src/_section3/*",
+    "./src/_section4/*",
+    "./src/_section5/*",
+    "./src/_section6/*",
+    "./src/_section7/*",
+    "./src/_section8/*",
+    "./src/_section9/*"
+  ]
 }

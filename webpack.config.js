@@ -12,7 +12,7 @@ module.exports = {
       {
         test: /\.ts$/, // a reg exp to look for .ts
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: [/node_modules/, /_section2/]
       }
     ]
   },
